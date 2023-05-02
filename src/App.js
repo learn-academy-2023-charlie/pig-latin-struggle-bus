@@ -32,9 +32,19 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
+// PseudoCode: The input is going to be an array. The output is going to be a string. The process: take the array, convert it to strings, and use our logic to check if the word begins with a vowel, and if it does, concatenate "way" to the end of the word. 
+      // if(eachWord.includes(vowelsArray, [0])){
+      //   return(eachWord + "way")
+      // } 
+      // example: "eat"[0]  output:"e"
+      // vowelsArray output is ['e', 'a']
+      // "e" === 'e'
+      // "eatway"
+        if(eachWord[0] === vowelsArray[0]){
+          return (eachWord + "way")
+        }
 
-    
-
+      
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
