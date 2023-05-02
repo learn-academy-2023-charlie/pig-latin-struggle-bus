@@ -40,11 +40,47 @@ const App = () => {
       // vowelsArray output is ['e', 'a']
       // "e" === 'e'
       // "eatway"
-        if(eachWord[0] === vowelsArray[0]){
-          return (eachWord + "way")
-        }
 
       
+      // const index = eachWord.indexOf(vowelsArray[0])
+      // const str1 = eachWord.slice(0, index)
+      // const str2 = eachWord.slice(index)
+      //   if(eachWord[0] === vowelsArray[0]){
+      //     return (eachWord + "way")
+      //   }
+      //   //Pseudo Code (qu-functionality)
+      //     // input is an array of words 
+      //     //output string of words 
+      //     //process: if qu is present in first 3 index values  
+      //   else if (vowelsArray.includes("u") && eachWord[eachWord.indexOf("u")-1] === "q"){
+      //     eachWord = str1 + str2 + "ay"
+      //   }
+      //   else if (vowelsArray.includes("u"))
+         
+      if(eachWord[0] === vowelsArray[0]){
+         return (eachWord + "way")
+      } else if (eachWord.substring(1, 3) === "qu") {
+        return eachWord.substring(3) + eachWord.substring(0, 3) + "ay";
+      } else if (eachWord.substring(0,2) === "qu") {
+        return eachWord.substring(2) + "quay";
+      } else {
+        const firstVowelIndex = eachWord.split("").findIndex(char => "aeiouAEIOU".includes(char));
+        // We use .split on eachWord and .findIndex on the resulting array to find the index of the first vowel. We compare it the "aeiouAEIOU" using the .includes to see if the characters are identical. If it has no identical characters that means the word does not have vowels and firstVowelIndex will return -1.
+        if (firstVowelIndex === -1) {
+          // word contains no vowels, treat as a special case
+          return eachWord + "ay";
+        } else {
+          return eachWord.substring(firstVowelIndex) + eachWord.substring(0, firstVowelIndex) + "ay";
+        }
+      }
+         
+          // else if (eachWord.substring(0,3).includes("qu") ) {
+          //   return eachWord.substring(eachWord.indexOf("qu")) + "quay";}
+     
+        // else if (eachWord.slice(1) + eachWord[0]){
+        //  return 
+
+        // }
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
